@@ -37,8 +37,6 @@ object PixelStretcher : CliktCommand(
                     .toList()
             }
 
-//        val coordColor = (0 until input.width).map { x -> xyToY[x]?.let { y -> input.color(x, y) } }
-
         val totalPixels = input.pixels().size
         var count = 0
         input.map { pixel ->
@@ -49,11 +47,6 @@ object PixelStretcher : CliktCommand(
             }
         }.save()
     }
-
-    private fun ImmutableImage.yToStretch(x:Int, yStart:Int):Int? = (yStart until height)
-        .reversed()
-        .firstOrNull { y -> color(x, y).alpha == 255 }
-//                .shuffled().first()
 
     private fun ImmutableImage.save(): File? {
         val filename = "${LocalDateTime.now().format(DATE_FORMAT)}.png"
