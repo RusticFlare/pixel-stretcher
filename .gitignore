@@ -1,0 +1,12 @@
+
+images/
+
+.gradle/
+
+.idea/
+
+.DS_Store
+
+out/
+
+build/
